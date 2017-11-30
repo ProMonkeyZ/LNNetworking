@@ -7,7 +7,7 @@
 //
 
 #import "LNViewController.h"
-
+#import "LNNetworking.h"
 
 @interface LNViewController ()
 
@@ -18,7 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    [[LNHttpRACUtls GET:@"" params:@[]] subscribeNext:^(id  _Nullable x) {
+        
+    } error:^(NSError * _Nullable error) {
+        
+    }];
 }
 
 - (void)didReceiveMemoryWarning
