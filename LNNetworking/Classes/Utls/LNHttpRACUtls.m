@@ -6,6 +6,11 @@
 //
 
 #import "LNHttpRACUtls.h"
+#import "LNNetStatusHelp.h"
+
+@interface LNHttpRACUtls()
+
+@end
 
 @implementation LNHttpRACUtls
 
@@ -15,8 +20,8 @@
  @return 信号
  */
 + (RACSignal *)fetchNetStatus {
-    if (1) {
-        NSError *error = [NSError errorWithDomain:@"com.cdeledu.err" code:-1001 userInfo:@{@"errorInfo":@"无网络"}];
+    if ([[LNNetStatusHelp shareInstance] currentReachabilityStatus] == NotReachable) {
+        NSError *error = [NSError errorWithDomain:@"com.zln.err" code:-1001 userInfo:@{@"errorInfo":@"无网络"}];
         return [RACSignal error:error];
     }
     return nil;
