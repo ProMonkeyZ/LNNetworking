@@ -7,6 +7,7 @@
 
 #import "LNHttpRACUtls.h"
 #import "LNNetStatusHelp.h"
+#import "LNHttpUtls.h"
 
 @interface LNHttpRACUtls()
 
@@ -31,8 +32,14 @@
     RACSignal *signal = [self fetchNetStatus];
     if (!signal) {
         signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            LNCancelBlock cancel = [LNHttpUtls asyncGet:url params:params complete:^(NSString *response) {
+                [subscriber sendNext:response];
+                [subscriber sendCompleted];
+            } faile:^(NSError *error) {
+                [subscriber sendError:error];
+            }];
             return [RACDisposable disposableWithBlock:^{
-                
+                cancel();
             }];
         }];
     }

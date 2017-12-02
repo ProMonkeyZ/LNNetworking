@@ -22,7 +22,7 @@
     [[LNHttpRACUtls GET:@"" params:@[]] subscribeNext:^(id  _Nullable x) {
         
     } error:^(NSError * _Nullable error) {
-        
+        NSLog(@"%@",error);
     }];
 }
 
