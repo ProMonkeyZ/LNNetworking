@@ -34,7 +34,7 @@
     };
 }
 
-+ (void)dealDataWithData:(NSData)data
++ (void)dealDataWithData:(NSData *)data
              andResopnse:(NSURLResponse *)response
                 andError:(NSError *)error
              andComplete:(LNCompleteBlock)complete
@@ -59,7 +59,7 @@
 
 + (NSString *)parseNetData:(NSData *)data response:(NSURLResponse *)response {
     if (data) {
-        NSStringEncoding *stringEncoding = nil;
+        NSStringEncoding stringEncoding = 0;
         NSString *textEncodingName = response.textEncodingName;
         if (textEncodingName != nil && ![textEncodingName isEqual:[NSNull null]]) {
             CFStringEncoding cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);

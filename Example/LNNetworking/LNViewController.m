@@ -9,6 +9,10 @@
 #import "LNViewController.h"
 #import "LNNetworking.h"
 
+/** 和风天气中国节点接口地址 */
+static NSString *kApi  = @"https://free-api.heweather.com";
+static NSString *kPrivatyKey = @"e319f866c39a43a196ab1f00b2399e4c";
+
 @interface LNViewController ()
 
 @end
@@ -19,17 +23,17 @@
 {
     [super viewDidLoad];
 	
+    [self getData];
+}
+
+- (void)getData {
+    NSString *url = [NSString stringWithFormat:@"%@%@",kApi,@""];
+    
     [[LNHttpRACUtls GET:@"" params:@[]] subscribeNext:^(id  _Nullable x) {
         
     } error:^(NSError * _Nullable error) {
         NSLog(@"%@",error);
     }];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
