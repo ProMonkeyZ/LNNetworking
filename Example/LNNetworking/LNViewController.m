@@ -27,10 +27,14 @@ static NSString *kPrivatyKey = @"e319f866c39a43a196ab1f00b2399e4c";
 }
 
 - (void)getData {
-    NSString *url = [NSString stringWithFormat:@"%@%@",kApi,@""];
+    NSString *url = [kApi stringByAppendingString:@"/s6/weather/now"];
     
-    [[LNHttpRACUtls GET:@"" params:@[]] subscribeNext:^(id  _Nullable x) {
-        
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:@"beijing" forKey:@"location"];
+    [params setValue:kPrivatyKey forKey:@"key"];
+    
+    [[LNHttpRACUtls GET:url params:params] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
     } error:^(NSError * _Nullable error) {
         NSLog(@"%@",error);
     }];

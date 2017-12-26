@@ -34,6 +34,17 @@
     };
 }
 
++ (LNCancelBlock)asyncPost:(NSString *)urlStr params:(id)params complete:(LNCompleteBlock)complete faile:(LNFaileBlock)faile {
+    __block NSURLSessionTask *task = nil;
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperationWithBlock:^{
+//        task = [Networking ]
+    }];
+    return ^{
+        
+    };
+}
+
 + (void)dealDataWithData:(NSData *)data
              andResopnse:(NSURLResponse *)response
                 andError:(NSError *)error

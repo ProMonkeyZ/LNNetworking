@@ -15,4 +15,8 @@ typedef void(^httpHandler)(NSData *data, NSURLResponse *response, NSError *error
                    params:(id)params
               httpHandler:(httpHandler)handler;
 
++ (NSURLSessionTask *)POST:(NSString *)url
+                    params:(id)params
+               httpHandler:(httpHandler)handler;
+
 @end
