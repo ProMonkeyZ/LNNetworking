@@ -27,12 +27,11 @@ static NSString *kPrivatyKey = @"e319f866c39a43a196ab1f00b2399e4c";
 }
 
 - (void)getData {
-    NSString *url = [kApi stringByAppendingString:@"/s6/weather/now"];
-    
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setValue:@"beijing" forKey:@"location"];
-    [params setValue:kPrivatyKey forKey:@"key"];
-    
+    NSString *url = @"http://api.shenjian.io/todayOnhistory/queryDetail";
+    NSDictionary *params = @{
+                             @"date":@"10693",
+                             @"appid":@"8e4b4505447053f40e6c88ebcc5dd3a9",
+                             };
     [[LNHttpRACUtls GET:url params:params] subscribeNext:^(id  _Nullable x) {
         NSLog(@"%@",x);
     } error:^(NSError * _Nullable error) {

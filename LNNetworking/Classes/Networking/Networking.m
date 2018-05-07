@@ -17,8 +17,9 @@
     if ([params isKindOfClass:[NSDictionary class]]) {
         NSMutableString *urlString = [NSMutableString stringWithString:url];
         [params enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-            [urlString appendFormat:([url rangeOfString:@"?"].location == NSNotFound?@"?%@=%@":@"&%@=%@"),key,[NSString stringWithFormat:@"%@",obj]];
+            [urlString appendFormat:([urlString rangeOfString:@"?"].location == NSNotFound?@"?%@=%@":@"&%@=%@"),key,[NSString stringWithFormat:@"%@",obj]];
         }];
+        NSLog(@"lnnetworking --- %@",urlString);
         request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     } else if ([params isKindOfClass:[NSData class]]) {
         request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];

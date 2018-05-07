@@ -38,10 +38,19 @@
     __block NSURLSessionTask *task = nil;
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     [queue addOperationWithBlock:^{
-//        task = [Networking ]
+        task = [Networking POST:urlStr params:params httpHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            [self dealDataWithData:data
+                       andResopnse:response
+                          andError:error
+                       andComplete:complete
+                          andFaile:faile];
+        }];
     }];
     return ^{
-        
+        if (task) {
+            [task cancel];
+        }
+        [queue cancelAllOperations];
     };
 }
 
