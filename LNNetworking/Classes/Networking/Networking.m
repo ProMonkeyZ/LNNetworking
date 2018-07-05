@@ -54,7 +54,7 @@
     } else if ([params isKindOfClass:[NSData class]]) {
         request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     }
-    request.HTTPMethod = @"POST";\
+    request.HTTPMethod = @"POST";
     request.timeoutInterval = 30;
     
     NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
