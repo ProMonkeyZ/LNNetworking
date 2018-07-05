@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LNNetworking'
-  s.version          = '0.1.1'
+  s.version          = '1.0.0'
   s.summary          = 'Based on the ReactiveCocoa http utls.'
 
 # This description is used to generate tags and improve search results.
@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/ProMonkeyZ/LNNetworking'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '18333675676@163.com' => 'zhanglining@syswin.com' }
+  s.author           = { '18333675676@163.com' => '18333675676@163.com' }
   s.source           = { :git => 'https://github.com/ProMonkeyZ/LNNetworking.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
