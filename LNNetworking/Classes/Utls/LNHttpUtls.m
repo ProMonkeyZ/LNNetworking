@@ -63,18 +63,16 @@
     if (!error) {
         responseStr = [self parseNetData:data response:response];
     }
-    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        if (responseStr) {
-            if (complete) {
-                complete(responseStr);
-            }
-            return ;
+    if (responseStr) {
+        if (complete) {
+            complete(responseStr);
         }
-        
-        if (faile) {
-            faile(error);
-        }
-    }];
+        return ;
+    }
+    
+    if (faile) {
+        faile(error);
+    }
 }
 
 + (NSString *)parseNetData:(NSData *)data response:(NSURLResponse *)response {
